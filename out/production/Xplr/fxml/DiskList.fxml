@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="790.0" prefWidth="1394.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="1183.0" layoutY="235.0" prefHeight="288.0" prefWidth="330.0" style="-fx-background-radius: 0 550 0 0; -fx-background-color: #8ba4b9; -fx-rotate: 245;">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="92.5" radius="46.3" width="94.7">
+               <color>
+                  <Color red="0.3550194799900055" green="0.4017259478569031" blue="0.40789473056793213" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Pane layoutX="207.0" layoutY="236.0" prefHeight="288.0" prefWidth="330.0" style="-fx-background-radius: 0 550 0 0; -fx-background-color: #2e83c9; -fx-rotate: 180;">
+               <effect>
+                  <DropShadow blurType="TWO_PASS_BOX" height="101.34" radius="48.510000000000005" width="94.7">
+                     <color>
+                        <Color red="0.3550194799900055" green="0.4017259478569031" blue="0.40789473056793213" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+         </children>
+      </Pane>
+      <MenuBar prefHeight="28.0" prefWidth="1394.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem fx:id="CloseItem" mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Create a Virtual Disk" />
+                  <MenuItem mnemonicParsing="false" text="Format a Virtual Disk" />
+                  <MenuItem mnemonicParsing="false" text="Delete a Virtual Disk" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem fx:id="AboutItem" mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Label layoutX="14.0" layoutY="56.0" prefHeight="58.0" prefWidth="106.0" text="Xplr" textFill="#374f65">
+         <font>
+            <Font name="Kefa Regular" size="51.0" />
+         </font>
+      </Label>
+      <Pane fx:id="DiskPane" layoutY="205.0" prefHeight="44.0" prefWidth="200.0" style="-fx-background-radius: 0 2000 0 2000; -fx-background-color: #2e83c9;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="DiskLabel" layoutX="69.0" layoutY="8.0" prefHeight="28.0" prefWidth="62.0" text="Disk" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="DiskListPane" layoutY="318.0" prefHeight="44.0" prefWidth="200.0" style="-fx-background-radius: 0 2000 0 2000; -fx-background-color: #8ba7b8;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="DiskListLabel" layoutX="29.0" layoutY="8.0" prefHeight="29.0" prefWidth="171.0" text="Disk List" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="TrashPane" layoutY="424.0" prefHeight="44.0" prefWidth="200.0" style="-fx-background-radius: 0 2000 0 2000; -fx-background-color: #2e83c9;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="TrashLabel" layoutX="57.0" layoutY="8.0" prefHeight="29.0" prefWidth="87.0" text="Trash" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="282.0" fitWidth="296.0" layoutX="1000.0" layoutY="-23.0">
+         <image>
+            <Image url="@../img/Ready/Disk_preview.png" />
+         </image>
+         <effect>
+            <Reflection bottomOpacity="0.02" fraction="0.55" topOffset="-10.0" topOpacity="0.41" />
+         </effect>
+      </ImageView>
+      <Pane fx:id="ClosingPane" layoutY="716.0" prefHeight="44.0" prefWidth="200.0" style="-fx-background-radius: 0 2000 0 2000; -fx-background-color: #c62123;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="ClosingLabel" layoutX="56.0" layoutY="8.0" prefHeight="29.0" prefWidth="171.0" text="Close" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView layoutX="269.0" layoutY="356.0" prefHeight="348.0" prefWidth="807.0">
+        <columns>
+          <TableColumn prefWidth="183.0" text="Name" />
+          <TableColumn prefWidth="108.0" text="Size" />
+            <TableColumn prefWidth="164.0" text="Location" />
+            <TableColumn prefWidth="94.0" text="Cluster Size" />
+            <TableColumn prefWidth="78.0" text="Free Space" />
+            <TableColumn prefWidth="179.0" text="Created at" />
+        </columns>
+      </TableView>
+      <TextField fx:id="SearchField" layoutX="1000.0" layoutY="286.0" prefHeight="29.0" prefWidth="238.0" />
+      <Label layoutX="938.0" layoutY="290.0" prefHeight="17.0" prefWidth="53.0" text="Search :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ToggleButton layoutX="492.0" layoutY="279.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="238.0" style="-fx-background-radius: 10; -fx-background-color: #3995a3;" text="Mount/ UnMount" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </ToggleButton>
+      <Pane fx:id="TrashPane11" layoutX="777.0" layoutY="277.0" prefHeight="45.0" prefWidth="137.0" style="-fx-background-radius: 10; -fx-background-color: #2e83c9;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="TrashLabel11" layoutX="38.0" layoutY="8.0" prefHeight="29.0" prefWidth="62.0" text="Info" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="TrashPane111" layoutX="269.0" layoutY="279.0" prefHeight="45.0" prefWidth="137.0" style="-fx-background-radius: 10; -fx-background-color: #2e83c9;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="TrashLabel111" layoutX="16.0" layoutY="8.0" prefHeight="29.0" prefWidth="106.0" text="Format" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="TrashPane112" layoutX="1119.0" layoutY="635.0" prefHeight="45.0" prefWidth="137.0" style="-fx-background-radius: 10; -fx-background-color: #a1bbdd;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label fx:id="TrashLabel112" layoutX="21.0" layoutY="8.0" prefHeight="29.0" prefWidth="96.0" text="Delete" textFill="WHITE">
+               <font>
+                  <Font name="Andale Mono" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

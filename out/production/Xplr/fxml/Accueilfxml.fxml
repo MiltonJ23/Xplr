@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane fx:id="Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1346.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="153.0" layoutY="564.0" prefHeight="288.0" prefWidth="330.0" style="-fx-background-radius: 0 550 0 0; -fx-background-color: #8ba4b9;">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="92.5" radius="46.3" width="94.7">
+               <color>
+                  <Color red="0.3550194799900055" green="0.4017259478569031" blue="0.40789473056793213" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <Pane layoutY="492.0" prefHeight="288.0" prefWidth="330.0" style="-fx-background-radius: 0 550 0 0; -fx-background-color: #2e83c9;">
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="101.34" radius="48.510000000000005" width="94.7">
+               <color>
+                  <Color red="0.3550194799900055" green="0.4017259478569031" blue="0.40789473056793213" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Pane>
+      <MenuBar prefHeight="28.0" prefWidth="1346.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="CloseItem" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Create a Virtual Disk" />
+                  <MenuItem mnemonicParsing="false" text="Format a Virtual Disk" />
+              <MenuItem mnemonicParsing="false" text="Delete a Virtual Disk" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="AboutItem" mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fitHeight="404.0" fitWidth="393.0" layoutX="238.0" layoutY="88.0">
+         <image>
+            <Image url="@../img/Ready/AppLogopreview.png" />
+         </image>
+         <effect>
+            <Reflection fraction="0.3" topOpacity="0.17" />
+         </effect>
+      </ImageView>
+      <Label layoutX="38.0" layoutY="77.0" prefHeight="73.0" prefWidth="254.0" text="Xplr" textFill="#374f65">
+         <font>
+            <Font name="Didot" size="96.0" />
+         </font>
+      </Label>
+      <Button fx:id="LaunchButtion" layoutX="998.0" layoutY="401.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="310.0" style="-fx-background-radius: 12; -fx-background-color: #2e98d2; -fx-text-fill: #ffffff;" text="Launch  Application">
+         <font>
+            <Font name="Farisi Regular" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="CloseButton" layoutX="998.0" layoutY="484.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="310.0" style="-fx-background-radius: 12; -fx-background-color: #ae1141; -fx-text-fill: #ffffff;" text="Close">
+         <font>
+            <Font name="Farisi Regular" size="15.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</Pane>
