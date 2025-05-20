@@ -206,7 +206,7 @@ public class BootSector  {
 
 
 
-        if(disk_size<262144){// Meaning if the disk_size is less than 256 MB
+        if(disk_size<272629760){// Meaning if the disk_size is less than 256 MB
 
             bootSecto[0x0D] = 0x01; // Meaning 1  sector of 512 bytes per cluster
 
