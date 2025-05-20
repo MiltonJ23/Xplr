@@ -16,6 +16,40 @@
  */
 package com.Xplr.Forensics.Models.Cluster;
 
+import java.util.ArrayList;
+
 public class ClusterBuilder {
-    
+
+    //Let's cover litteraly our only cluster in the system
+    private Cluster cluster ;
+
+
+    // Let's define our Different Cluster Builder
+    public ClusterBuilder(){
+        this.cluster = new Cluster();
+    }
+    public ClusterBuilder(int pos){
+        this.cluster = new Cluster(pos);
+    }
+    public ClusterBuilder(int pos, ArrayList<Integer> tex){
+        this.cluster = new Cluster(pos,tex);
+    }
+
+    public void FreeSpace(){
+        this.cluster.setOccupied(false);
+    }
+
+    public Boolean isOccupied(){
+        return cluster.isOccupied();
+    }
+
+    public void SectorAllocation(ArrayList<Integer> tesla ){
+        this.cluster.setSectorsLbasHoldByCluster(tesla);
+    }
+    public int getCluster(){
+        return this.cluster.getCluster_Id();
+    }
+
+
+
 }
