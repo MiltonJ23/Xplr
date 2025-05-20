@@ -27,6 +27,7 @@ public class FAT {
     private int location ; // this refers to the  offset positioning  of the File Allocation Table in the Disk; we are going to proceed with the sector LBA
     // Concerning the start of the FAT , it is given
 
+    // The FAT Backup is going to be handled in the FATBuiler
 
     // Let's start with the constructor
     public FAT(int SectorLba){ // this will be the default FAT of a 1 Gb virtual disk
@@ -42,7 +43,7 @@ public class FAT {
         }
         // After defining File Allocation Entries of the FAT , now let's move on to fill the other fields
         // Now let's set the number of Sectors per FAT , referring to the size of the FAT
-        this.FATSize = (NumberOfClusterPerFAT*4L)/512; // The L is to cast the value to a Long
+        this.FATSize = (NumberOfClusterPerFAT*4L+511)/512; // The L is to cast the value to a Long
 
         // Now let's set the FreeClusterNumber right
         FreeCluster = NumberOfClusterPerFAT;
@@ -65,7 +66,7 @@ public class FAT {
            }
            // After defining File Allocation Entries of the FAT , now let's move on to fill the other fields
            // Now let's set the number of Sectors per FAT , referring to the size of the FAT
-           this.FATSize = (NumberOfClusterPerFAT*4L)/512;
+           this.FATSize = (NumberOfClusterPerFAT*4L+511)/512;
 
            // Now let's set the FreeClusterNumber right
            FreeCluster = NumberOfClusterPerFAT;
@@ -89,7 +90,7 @@ public class FAT {
 
            // After defining File Allocation Entries of the FAT , now let's move on to fill the other fields
            // Now let's set the number of Sectors per FAT , referring to the size of the FAT
-           this.FATSize = (NumberOfClusterPerFAT*4L)/512;
+           this.FATSize = (NumberOfClusterPerFAT*4L+511)/512;
 
            // Now let's set the FreeClusterNumber right
            FreeCluster = NumberOfClusterPerFAT;
@@ -113,7 +114,7 @@ public class FAT {
 
            // After defining File Allocation Entries of the FAT , now let's move on to fill the other fields
            // Now let's set the number of Sectors per FAT , referring to the size of the FAT
-           this.FATSize = (NumberOfClusterPerFAT*4L)/512;
+           this.FATSize = (NumberOfClusterPerFAT*4L+511)/512;
 
            // Now let's set the FreeClusterNumber right
            FreeCluster = NumberOfClusterPerFAT;
@@ -136,7 +137,7 @@ public class FAT {
 
            // After defining File Allocation Entries of the FAT , now let's move on to fill the other fields
            // Now let's set the number of Sectors per FAT , referring to the size of the FAT
-           this.FATSize = (NumberOfClusterPerFAT*4L)/512;
+           this.FATSize = (NumberOfClusterPerFAT*4L+511)/512;
 
            // Now let's set the FreeClusterNumber right
            FreeCluster = NumberOfClusterPerFAT;
@@ -158,6 +159,7 @@ public class FAT {
             return FATEntries.get(cluster_id-2);
         }
    }
+
 
 
 
