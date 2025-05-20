@@ -150,6 +150,17 @@ public class FAT {
 
 
    // Now let's build a method which based on the cluster id will return the FATEntry
+/**
+ * Retrieves the FATEntry corresponding to the specified cluster identifier.
+ * <p>
+ * If the FAT entries list is empty, this method returns a new FATEntry
+ * instance marked as free. Otherwise, it returns the FATEntry at the
+ * position corresponding to {@code cluster_id - 2}.
+ * </p>
+ *
+ * @param cluster_id the identifier of the cluster whose FAT entry is to be retrieved
+ * @return the FATEntry associated with the given cluster ID, or a free FATEntry if the list is empty
+ */
    public FATEntry findFATEntryUsingClusterIdentification(int cluster_id){
         if(FATEntries.isEmpty())
         {
@@ -160,8 +171,99 @@ public class FAT {
         }
    }
 
+/**
+ * Allocates clusters for a file based on its byte size using the FAT (File Allocation Table) model.
+ * <p>
+ * This method calculates the number of clusters required for the given file size,
+ * searches for free clusters in the FAT, and links them together to represent the file's storage.
+ * If there are not enough free clusters available, the method returns {@code null}.
+ * Otherwise, it updates the FAT entries to reflect the allocation and returns a list of allocated cluster indices.
+ * </p>
+ *
+ * @param fileByteSize The size of the file in bytes to be allocated on the disk.
+ * @return An {@code ArrayList<Integer>} containing the indices of the allocated clusters,
+ *         or {@code null} if there is insufficient space.
+ */
+public ArrayList<Integer> AllocateFileUsingHisBytes(long fileByteSize){
+        // The first step would be to be sure about the size of a cluster for this disk but this method would be the by default meaning less than 8 Gb , therefore its cluster size would be 4096
+        int clusterSize = 4096;
 
+        //Then let's determine the number of cluster needed for the allocation
+        int clusterRequired = (int) fileByteSize/clusterSize;
+        ArrayList<Integer> freeCluster= new ArrayList<>();
+        // Then let's get the address of the free clusters
+        for(int i=0;i<FATEntries.size() && freeCluster.size()<clusterRequired;i++)
+        {
+                if(FATEntries.get(i).isFREE()) // On parcoure la liste des FATEntry et on recueille les clusters qui ne sont pas assignes
+                {
+                    freeCluster.add(i);
+                }
+        }
 
+        //Now let's check if the number of freecluster we got is enough
+        if(freeCluster.size()<clusterRequired-1)
+        {
+            return null; // Since there is not enough space
+        }
+
+        // Now let's properly allocate the clusters
+        for(int i=0;i<freeCluster.size();i++)
+        {
+            int clustId = freeCluster.get(i); // let's store the value of the first free cluster id fetched by the program on the disk to initiate the chain
+            FATEntry entry = FATEntries.get(clustId-2);//With this we can fetch the correct file allocation table entry
+            if(i<freeCluster.size()-1)
+            {
+                int nextClusterInLine = freeCluster.get(i+1);
+                entry.setFatEntryValue(nextClusterInLine); // This method allow us to set which cluster will be the next in the line
+            }
+            else
+            {
+                entry.setEND_OF_CHAIN_MAX();
+            }
+            this.FreeCluster-=1;
+        }
+
+        return freeCluster;
+}
+
+    /**
+     * Frees a chain of clusters in the FAT (File Allocation Table) starting from the specified cluster ID.
+     * <p>
+     * This method traverses the cluster chain beginning at {@code startClusterId}, marking each cluster
+     * in the chain as free until the end of the chain is reached. The method updates the FAT entries
+     * and increments the free cluster counter for each cluster that is freed.
+     * </p>
+     *
+     * @param startClusterId the ID of the first cluster in the chain to be freed; must be >= 2 and within the FAT range
+     */
+    public void freeClusterChain(int startClusterId) {
+        // Start freeing the chain from the given start cluster
+        int clusterId = startClusterId;  
+
+        // Loop through the chain as long as the cluster ID is valid
+        while (clusterId >= 2 && clusterId < FATEntries.size() + 2) {  
+
+         // Retrieve the FAT entry corresponding to the current cluster
+        FATEntry entry = FATEntries.get(clusterId - 2);  
+
+        // Get the next cluster in the chain (before freeing the current one)
+        int nextCluster = entry.getFatEntryValue();  
+
+        // Mark this cluster as free in the FAT
+        entry.setFREE_CLUSTER();  
+
+        // Increment the free cluster counter
+        FreeCluster++;  
+
+        // If we reach the end of the chain or a loop, stop
+        if (entry.isEndOfChain() || nextCluster == clusterId) {  
+              break; // End of chain reached
+            }  
+
+        // Move to the next cluster in the chain
+        clusterId = nextCluster;  
+            }
+    }
 
 
     /**
