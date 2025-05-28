@@ -265,6 +265,23 @@ public ArrayList<Integer> AllocateFileUsingHisBytes(long fileByteSize){
             }
     }
 
+    //Let's create a method to free all the clusters of the FAT mimicking a format
+    /**
+     * Frees all clusters in the FAT (File Allocation Table), effectively resetting it.
+     * <p>
+     * This method iterates through all FAT entries, marking each one as free and resetting the
+     * free cluster counter to the total number of clusters available in the FAT.
+     * </p>
+     */
+    public void formatFileAllocationTable(){
+        for (int j=0; j<this.FATEntries.size();J++) // I go through all the differents FATEntries hold in the File allocation table , and i free them all , technically speaking i am not freeing the disk or sectors ; i am just marking them as allocatable 
+        {
+            this.FATEntries.get(j).setFREE_CLUSTER(); // With this i am setting the selected FATEntry as free 
+        }
+    }
+
+
+    
 
     /**
      * Calculates the total number of sectors on the entire disk based on its size in bytes.
