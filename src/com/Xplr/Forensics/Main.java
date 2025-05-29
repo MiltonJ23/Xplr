@@ -16,6 +16,26 @@
  */
 package com.Xplr.Forensics;
 
+import com.Xplr.Forensics.Models.VirtualDisk.VirtualDisk;
+import java.io.IOException;
+
 public class Main {
-    
+
+    public static void main(String[] args) {
+        String diskName = "MyDisk";
+        long diskSize = 1024 * 1024 * 1024; // 1GB
+        String imageFilePath = "/Users/fredmike/Desktop/mydisk.dmg"; 
+
+        try {
+            //  Create a VirtualDisk object
+            VirtualDisk virtualDisk = new VirtualDisk(diskName, diskSize);
+
+            //. Write the virtual disk to an image file
+            virtualDisk.writeToImageFile(imageFilePath);
+
+            System.out.println("Virtual disk image created successfully at: " + imageFilePath);
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
 }

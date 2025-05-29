@@ -222,6 +222,12 @@ public class FATEntry {
     }
 
 
+    /**
+        * Returns a string representation of the FAT entry value in hexadecimal format.
+        *
+        * @return A string representing the FAT entry value, formatted as a hexadecimal number with leading zeros.
+        *         For example, if FatEntryValue is 255, the returned string will be "0x000000FF".
+        */
     @Override
     public String toString() {
         return String.format("0x%08X", FatEntryValue);

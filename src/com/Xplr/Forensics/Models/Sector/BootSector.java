@@ -416,4 +416,85 @@ public class BootSector  {
         }
     }
 
+//    public static BootSector fromByteArray(byte[] data, int offset) {
+//        BootSector bootSector = new BootSector();
+//
+//        // Read the OEM ID (3 bytes)
+//        bootSector.oemID = new String(data, offset, 8).trim();
+//        offset += 8;
+//
+//        // Read the bytesPerSector (2 bytes)
+//        bootSector.bytesPerSector = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the sectorsPerCluster (1 byte)
+//        bootSector.sectorsPerCluster = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the reservedSectors (2 bytes)
+//        bootSector.reservedSectors = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the numFATs (1 byte)
+//        bootSector.numFATs = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the rootEntries (2 bytes)
+//        bootSector.rootEntries = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the totalSectorsSmall (2 bytes)
+//        bootSector.totalSectorsSmall = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the mediaType (1 byte)
+//        bootSector.mediaType = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the sectorsPerFAT (2 bytes)
+//        bootSector.sectorsPerFAT = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the sectorsPerTrack (2 bytes)
+//        bootSector.sectorsPerTrack = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the numHeads (2 bytes)
+//        bootSector.numHeads = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8));
+//        offset += 2;
+//
+//        // Read the hiddenSectors (4 bytes)
+//        bootSector.hiddenSectors = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8) | ((data[offset + 2] & 0xFF) << 16) | ((data[offset + 3] & 0xFF) << 24));
+//        offset += 4;
+//
+//        // Read the totalSectorsLarge (4 bytes)
+//        bootSector.totalSectorsLarge = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8) | ((data[offset + 2] & 0xFF) << 16) | ((data[offset + 3] & 0xFF) << 24));
+//        offset += 4;
+//
+//        // Read the driveNumber (1 byte)
+//        bootSector.driveNumber = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the reserved1 (1 byte)
+//        bootSector.reserved1 = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the bootSignature (1 byte)
+//        bootSector.bootSignature = data[offset] & 0xFF;
+//        offset += 1;
+//
+//        // Read the volumeID (4 bytes)
+//        bootSector.volumeID = ((data[offset] & 0xFF) | ((data[offset + 1] & 0xFF) << 8) | ((data[offset + 2] & 0xFF) << 16) | ((data[offset + 3] & 0xFF) << 24));
+//        offset += 4;
+//
+//        // Read the volumeLabel (11 bytes)
+//        bootSector.volumeLabel = new String(data, offset, 11).trim();
+//        offset += 11;
+//
+//        // Read the fileSystemType (8 bytes)
+//        bootSector.fileSystemType = new String(data, offset, 8).trim();
+//        offset += 8;
+//
+//        return bootSector;
+//    }
 }

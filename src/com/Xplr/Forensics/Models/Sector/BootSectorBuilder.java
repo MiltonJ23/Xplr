@@ -40,5 +40,8 @@ public class BootSectorBuilder {
         }
     }
 
+    public BootSector Build(){
+       return this.bootSector;
+    }
 
 }
