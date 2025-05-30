@@ -1,6 +1,6 @@
 /*
  * This file is part of the marquis valois distribution
- * Copyright (c) 2024 Acheron Systems.
+ * Copyright (c) 2024 Acheron Systems corp.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
